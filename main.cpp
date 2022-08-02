@@ -6,13 +6,11 @@
 using namespace std;
 
 
-int set_settings(int maxNumber){
-    int maxNumberIn;
+void set_settings(int *pMaxNumber){
 
+    cout << "The current maximum number is at " << *pMaxNumber << endl;
     cout << "What do you want as you maximum number?" << endl;
-    cin >> maxNumberIn;
-
-    return maxNumberIn;
+    cin >> *pMaxNumber;
 }
 
 int main(){
@@ -28,11 +26,11 @@ int main(){
         if(input == 'q') {
             return 0;
         } else if(input == 's'){
-            maxNumber = set_settings(maxNumber);
+            set_settings(&maxNumber);
         } else if (input == 'p'){
             randomNumber = rand() % maxNumber;
             for(int i = 0; i <= 10; i++){
-                cout << "What is you guess?" << randomNumber << endl;
+                cout << "What is you guess?"  << endl;
                 cin >> guess;
                 if(guess == randomNumber){
                     cout << "You Won! " << randomNumber << " was the random number!"<< endl;
@@ -53,4 +51,6 @@ int main(){
     }
 
 }
+
+
 
